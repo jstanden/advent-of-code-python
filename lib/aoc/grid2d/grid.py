@@ -19,11 +19,11 @@ def find_coords(grid: defaultdict, value):
 
 
 def neighbors(grid: defaultdict, at: tuple, directions: List[tuple]):
-    results = set()
+    results = []
     for d in directions:
         n_at = vector2d.add(at, d)
         if grid.get(n_at):
-            results.add((n_at, grid[n_at]))
+            results.append((n_at, grid[n_at]))
     return results
 
 
