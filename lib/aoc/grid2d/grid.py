@@ -10,8 +10,10 @@ def parse(data: str, as_int: bool = False) -> (defaultdict, dict):
 
 
 def render(top_left: tuple, bottom_right: tuple, func: Callable) -> None:
-    for coord in [(y, x) for y in range(*top_left) for x in range(*bottom_right)]:
-        func(coord)
+    for y in range(top_left[0], bottom_right[0]):
+        for x in range(top_left[1], bottom_right[1]):
+            func((y,x))
+        print("")
 
 
 def find_coords(grid: defaultdict, value):
