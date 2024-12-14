@@ -1,7 +1,10 @@
+import math
+
 NESW = ((-1, 0), (0, 1), (1, 0), (0, -1))
 NESW_DIAG = ((-1, 0), (0, 1), (1, 0), (0, -1), (-1, 1), (-1, -1), (1, -1), (1, 1))
 
 SWNE = ((1, 0), (0, -1), (-1, 0), (0, 1))
+
 
 def add(v1, v2):
     return tuple([v1[n] + v2[n] for n in range(len(v1))])
@@ -22,3 +25,11 @@ def invert(v1: tuple) -> tuple:
 
 def slope(v1, v2):
     return v2[0] - v1[0], v2[1] - v1[1]
+
+
+def dist_euclid(v1, v2) -> float:
+    return math.sqrt(math.pow(v2[1] - v1[1], 2) + math.pow(v2[0] - v1[0], 2))
+
+
+def dist_manhattan(v1, v2) -> int:
+    return abs(v1[1] - v2[1]) + abs(v1[0] - v2[0])
