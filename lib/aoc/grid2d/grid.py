@@ -27,10 +27,10 @@ def neighbors(grid: defaultdict, at: tuple, directions: List[tuple]):
     return results
 
 
-def fill(top_left: tuple, bot_right: tuple) -> set:
+def fill(top_left: tuple, bot_right: tuple) -> list:
     x_delta = 1 if bot_right[1] > top_left[1] else -1
     y_delta = 1 if bot_right[0] > top_left[0] else -1
-    return set([(y, x)
+    return list([(y, x)
                 for y in range(top_left[0], bot_right[0] + y_delta, y_delta)
                 for x in range(top_left[1], bot_right[1] + x_delta, x_delta)])
 
