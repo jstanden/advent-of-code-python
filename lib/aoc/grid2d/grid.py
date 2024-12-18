@@ -9,11 +9,11 @@ def parse(data: str, as_int: bool = False) -> (defaultdict, dict):
                        for x, symbol in enumerate(list(row))})
 
 
-def render(top_left: tuple, bottom_right: tuple, func: Callable) -> None:
-    for y in range(top_left[0], bottom_right[0]):
-        for x in range(top_left[1], bottom_right[1]):
+def render(top_left: tuple, bottom_right: tuple, func: Callable, wrap: bool = True) -> None:
+    for y in range(top_left[0], bottom_right[0]+1):
+        for x in range(top_left[1], bottom_right[1]+1):
             func((y,x))
-        print("")
+        if wrap: print("")
 
 
 def find_coords(grid: defaultdict, value):
