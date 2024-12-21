@@ -23,6 +23,22 @@ def invert(v1: tuple) -> tuple:
     return -v1[0], -v1[1]
 
 
+def north(v: tuple) -> tuple:
+    return add(v, NESW[0])
+
+
+def east(v: tuple) -> tuple:
+    return add(v, NESW[1])
+
+
+def south(v: tuple) -> tuple:
+    return add(v, NESW[2])
+
+
+def west(v: tuple) -> tuple:
+    return add(v, NESW[3])
+
+
 def slope(v1, v2):
     return v2[0] - v1[0], v2[1] - v1[1]
 
