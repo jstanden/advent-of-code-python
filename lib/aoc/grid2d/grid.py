@@ -36,3 +36,15 @@ def fill(top_left: tuple, bot_right: tuple) -> list:
                 for y in range(top_left[0], bot_right[0] + y_delta, y_delta)
                 for x in range(top_left[1], bot_right[1] + x_delta, x_delta)])
 
+def manhattan_radius(center_yx, radius):
+    points = set()
+    center_y, center_x = center_yx
+
+    for d in range(radius + 1):
+        for dx in range(-d, d + 1):
+            dy = d - abs(dx)
+            points.add((center_y + dy, center_x + dx))
+            if dy != 0:
+                points.add((center_y - dy, center_x + dx))
+
+    return points
